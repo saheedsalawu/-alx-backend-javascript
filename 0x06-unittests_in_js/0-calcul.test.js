@@ -1,49 +1,30 @@
-cconst assert = require('assert');
-const isEqual = assert.strictEqual;
-const calculateNumber = require('./0-calcul')
+const assert = require('assert');
+const { it, describe } = require('mocha')
+const calculateNumber = require('./0-calcul');
 
-describe('calculateNumber', () => {
-  it('should pass_0', () => {
-    isEqual(calculateNumber(1, 3), 4);
+describe('calculateNumber', function() {
+  it(`checking if number round`, function() {
+    const res = calculateNumber(1, 2);
+    assert.strictEqual(res, 3);
   });
-
-  it('should pass_1', () => {
-    isEqual(calculateNumber(10, 3), 13);
+  it(`checking if number round`, function() {
+    const res = calculateNumber(1.4, 2.2);
+    assert.strictEqual(res, 3);
   });
-
-  it('should pass_2', () => {
-    isEqual(calculateNumber(1, 0), 1);
+  it(`checking if number round`, function() {
+    const res = calculateNumber(1.6, 2.7);
+    assert.strictEqual(res, 5);
   });
-
-  it('should pass_3', () => {
-    isEqual(calculateNumber(2.5, 2.5), 6);
+  it(`checking if number round`, function() {
+    const res = calculateNumber(0, 0);
+    assert.strictEqual(res, 0);
   });
-
-  it('should pass_4', () => {
-    isEqual(calculateNumber(0.1, 0.3), 0);
+  it(`checking if number round`, function() {
+    const res = calculateNumber(-1.6, -1.7);
+    assert.strictEqual(res, -4);
   });
-
-  it('should pass_5', () => {
-    isEqual(calculateNumber(1, 3), 4);
-  });
-
-  it('should pass_6', () => {
-    isEqual(calculateNumber(893390874874, 494788474298), 1388179349172);
-  });
-
-  it('should pass_7', () => {
-    isEqual(calculateNumber(0.1, 0.5), 1);
-  });
-
-  it('should pass_8', () => {
-    isEqual(calculateNumber(1e5, 3e5), 4e5);
-  });
-
-  it('should pass_9', () => {
-    isEqual(calculateNumber(96, 3), 99);
-  });
-
-  it('should pass_10', () => {
-    isEqual(calculateNumber(Infinity, Infinity), Infinity);
+  it(`checking if number round`, function() {
+    const res = calculateNumber(-1.4, -1.3);
+    assert.strictEqual(res, -2);
   });
 });
